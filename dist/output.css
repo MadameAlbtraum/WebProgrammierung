@@ -534,14 +534,6 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.mt-3 {
-  margin-top: 0.75rem;
-}
-
-.mt-4 {
-  margin-top: 1rem;
-}
-
 .flex {
   display: flex;
 }
@@ -582,12 +574,16 @@ video {
   background-color: rgb(51 65 85 / var(--tw-bg-opacity));
 }
 
-.p-4 {
-  padding: 1rem;
+.bg-hero-pattern {
+  background-image: url('/images/transparenteGeschenke.png');
 }
 
-.pt-4 {
-  padding-top: 1rem;
+.bg-cover {
+  background-size: cover;
+}
+
+.p-4 {
+  padding: 1rem;
 }
 
 .pb-3 {
