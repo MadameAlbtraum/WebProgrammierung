@@ -2,4 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.meineKlasse {}
+.meineKlasse h2 {
+    color: blueviolet;
+    font-size: 100px;
+}
