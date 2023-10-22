@@ -9,7 +9,6 @@
     <link rel="stylesheet"
         href="file:///c:/Users/albtr/OneDrive/Studium/3. Semester/Web/Portfolioaufgaben/webseite/dist/output.css">
 
-
     <title>Katis Kramkiste</title>
     <!--"npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch" <link href="/dist/output.css" rel="stylesheet">-->
 </head>
@@ -19,7 +18,8 @@
     <header>
         <div class="bg-blue-500 text-white p-4">
             Dies ist ein Test.
-            <h2 class="MeineKlasse">Testestestes</h2>
+            <h2 class="MeineKlasse">Test ob input.css eingebunden wird. Falls ja sollte der Text eine andere Farbe &
+                Größe haben</h2>
         </div>
 
     </header>
@@ -31,22 +31,81 @@
 
     <!--Footer-->
     <footer>
-        <div class="grid grid-cols-3 grid-rows-2">
-            <div class="">
-                <h2 class="MeineKlasse">Ich soll oben mittig stehen und in mich kommen die Social Media Icons rein</h2>
+        <div class="grid grid-cols-3 grid-rows-2 text-center bg-slate-700 text-slate-300">
+            <div class="col-span-3 mt-2">
+
+                <section class="flex justify-center space-x-3">
+                    <!-- Pinterest-->
+                    <a href="#"> <img class="w-10" src="images/pngimg.com - pinterest_PNG45.png "
+                            alt="Pinterest Link"></a>
+
+                    <!-- YouTube -->
+                    <a href="#"> <img class="w-10" src="images/youtube-transparent-icon-2.png" alt="YouTube Link"></a>
+
+                    <!-- Instagram -->
+                    <a href="#"> <img class="w-10" src="images/pngimg.com - instagram_PNG9.png"
+                            alt="Instagram Link"></a>
+                </section>
             </div>
 
             <div class="">
-                <h2>Ich soll unter den Social Media Icons links sein</h2>
+                <h5 class="uppercase">Kontakt</h5>
+
+                <ul class="underline">
+                    <li>
+                        <a href="#!">E-mail</a>
+                    </li>
+                    <li>
+                        <a href="#!">Telefon</a>
+                    </li>
+                    <li>
+                        <a href="#!">Chatbot</a>
+                    </li>
+                </ul>
             </div>
 
             <div class="">
-                <h2>Ich soll mittig unter den Social Media Icons sein</h2>
+                <div class="">
+                    <h5 class="uppercase">About Us</h5>
+
+                    <ul class="underline">
+                        <li>
+                            <a href="#!">FAQs</a>
+                        </li>
+                        <li>
+                            <a href="#!">Philosophie</a>
+                        </li>
+                        <li>
+                            <a href="#!">Geschichte</a>
+                        </li>
+                        <li>
+                            <a href="#!">Team</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
             <div class="">
-                <h2>Ich soll unter den Social Media Icons rechts sein</h2>
+                <div class="">
+                    <h5 class="uppercase">Sales</h5>
+
+                    <ul class="underline">
+                        <li>
+                            <a href="#!">Elektro</a>
+                        </li>
+                        <li>
+                            <a href="#!">Spielzeug</a>
+                        </li>
+                        <li>
+                            <a href="#!">Bücher</a>
+                        </li>
+                        <li>
+                            <a href="#!">Kleidung</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
+
         </div>
     </footer>
     <!--/Footer-->
