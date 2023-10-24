@@ -17,5 +17,5 @@ beides funktioniert, änderungen werden von input.css in output.css übernommen 
 
 .niceTitle {
     font-weight: bold;
-    font-size: 30px;
+    font-size: 2rem;
 }
