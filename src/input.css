@@ -16,6 +16,8 @@ beides funktioniert, änderungen werden von input.css in output.css übernommen 
 }
 
 .niceTitle {
+    font-family: Pacifico;
+    font-style: italic;
     font-weight: bold;
     font-size: 2rem;
 }
