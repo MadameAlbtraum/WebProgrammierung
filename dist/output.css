@@ -534,6 +534,32 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.mx-3 {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
+.mx-6 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.inline {
+  display: inline;
+}
+
 .flex {
   display: flex;
 }
@@ -550,8 +576,16 @@ video {
   width: 2.5rem;
 }
 
+.w-7 {
+  width: 1.75rem;
+}
+
 .w-full {
   width: 100%;
+}
+
+.list-none {
+  list-style-type: none;
 }
 
 .grid-cols-3 {
@@ -649,6 +683,24 @@ beides funktioniert, änderungen werden von input.css in output.css übernommen 
   }
 }
 
+.hamburger {
+  display: grid;
+  position: absolute;
+  right: 2em;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 30px;
+  background: rgb(203, 213, 225);
+  color: rgb(30, 41, 59);
+}
+
+.menu {
+  position: relative;
+  left: 20em;
+}
+
 @media (min-width: 640px) {
   .sm\:grid-rows-3 {
     grid-template-rows: repeat(3, minmax(0, 1fr));
@@ -657,6 +709,11 @@ beides funktioniert, änderungen werden von input.css in output.css übernommen 
   .sm\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
+  }
+
+  .sm\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 
@@ -673,11 +730,21 @@ beides funktioniert, änderungen werden von input.css in output.css übernommen 
     font-size: 3rem;
     line-height: 1;
   }
+
+  .md\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
 }
 
 @media (min-width: 1024px) {
   .lg\:text-8xl {
     font-size: 6rem;
     line-height: 1;
+  }
+
+  .lg\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
