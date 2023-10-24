@@ -605,10 +605,6 @@ video {
   text-transform: uppercase;
 }
 
-.italic {
-  font-style: italic;
-}
-
 .text-slate-300 {
   --tw-text-opacity: 1;
   color: rgb(203 213 225 / var(--tw-text-opacity));
@@ -629,8 +625,9 @@ beides funktioniert, änderungen werden von input.css in output.css übernommen 
 @import 'tailwindcss/utilities';*/
 
 .meineKlasse {
-  color: rgb(226, 43, 171);
-  font-size: 20px;
-  font-weight: bolder;
-  font-style: italic;
+  font-size: 3rem;
+  font-weight: bold;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(0deg, rgb(236, 127, 225) 0%, rgba(56, 83, 134, 1) 100%);
+  -webkit-background-clip: text;
 }
