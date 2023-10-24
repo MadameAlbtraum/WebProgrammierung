@@ -7,17 +7,18 @@ beides funktioniert, änderungen werden von input.css in output.css übernommen 
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';*/
 
-.meineKlasse {
-    font-size: 3rem;
-    font-weight: bold;
-    -webkit-text-fill-color: transparent;
-    background: linear-gradient(0deg, rgb(239, 5, 118) 0%, rgb(56, 134, 125) 100%);
-    -webkit-background-clip: text;
-}
-
 .niceTitle {
     font-family: Pacifico;
     font-style: italic;
-    font-weight: bold;
-    font-size: 2rem;
+}
+
+@media (min-width: 200px) {
+    .xs\:text-3xl {
+        font-size: 2rem
+            /* 30px */
+        ;
+        line-height: 2rem
+            /* 36px */
+        ;
+    }
 }
