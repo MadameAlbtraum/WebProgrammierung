@@ -11,6 +11,11 @@ beides funktioniert, änderungen werden von input.css in output.css übernommen 
     font-size: 3rem;
     font-weight: bold;
     -webkit-text-fill-color: transparent;
-    background: linear-gradient(0deg, rgb(236, 127, 225) 0%, rgba(56, 83, 134, 1) 100%);
+    background: linear-gradient(0deg, rgb(239, 5, 118) 0%, rgb(56, 134, 125) 100%);
     -webkit-background-clip: text;
+}
+
+.niceTitle {
+    font-weight: bold;
+    font-size: 30px;
 }
