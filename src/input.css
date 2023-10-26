@@ -10,17 +10,10 @@ beides funktioniert, änderungen werden von input.css in output.css übernommen 
 .niceTitle {
     font-family: Pacifico;
     font-style: italic;
-}
-
-@media (min-width: 200px) {
-    .xs\:text-3xl {
-        font-size: 2rem
-            /* 30px */
-        ;
-        line-height: 2rem
-            /* 36px */
-        ;
-    }
+    background-image: url('file:///c:/Users/albtr/OneDrive/Studium/3. Semester/Web/Portfolioaufgaben/webseite/src/images/headerText.png');
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #menu-toggle {
@@ -59,6 +52,7 @@ beides funktioniert, änderungen werden von input.css in output.css übernommen 
 }
 
 #bg {
+    background-image: url('file:///c:/Users/albtr/OneDrive/Studium/3. Semester/Web/Portfolioaufgaben/webseite/src/images/transparenteGeschenke.png');
     background-size: cover;
     height: 100vh;
 }
