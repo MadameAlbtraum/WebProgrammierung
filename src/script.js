@@ -14,7 +14,7 @@ function fetchData() {
                 for (user of data.users) {
                     console.log(user);
                     const listItem = document.createElement('li');
-                    listItem.textContent = user.firstName; // Passe an, welche Daten angezeigt werden sollen
+                    listItem.textContent = user.firstName + ' ' + user.lastName + ' Username: ' + user.username; // Passe an, welche Daten angezeigt werden sollen
                     dataList.appendChild(listItem);
                 }
 
