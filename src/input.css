@@ -57,3 +57,14 @@ beides funktioniert, änderungen werden von input.css in output.css übernommen 
         display: block;
     }
 }
+
+#bg {
+    background-size: cover;
+    height: 100vh;
+}
+
+.borders {
+    border: 2px solid;
+    border-radius: 3px;
+    border-color: rgb(122, 122, 122);
+}

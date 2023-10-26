@@ -20,12 +20,13 @@
         Aber leider hat derselbe Code im sytlesheet nicht funktioniert und ich wollte die Optik unbedingt haben :-) -->
     <header>
         <div class="bg-slate-800 text-slate-300">
-            <h1 class="niceTitle xs:text-3xl sm:text-3xl p-3 md:text-5xl lg:text-8xl"
+            <h1 id="hgb" class="niceTitle xs:text-3xl sm:text-3xl p-3 md:text-5xl lg:text-8xl"
                 style="background-image: url(images/headerText.png); background-repeat: no-repeat; -webkit-background-clip: text;-webkit-text-fill-color: transparent;">
                 Katis Kramkiste</h1>
             <!-- Hamburger Menü-->
+            <label for="menu-toggle" id="menu-icon" w>&#9776;</label>
             <input type="checkbox" class="menu-toggle" />
-            <label for="menu-toggle" id="menu-icon">&#9776;</label>
+
             <nav id="menu" class="pb-3 xs:xl sm:text-xl p-3 md:text-xl lg:text-xl">
                 <ul class="mx-3">
                     <li class="inline pr-4">
@@ -49,16 +50,17 @@
     <!--/Header-->
 
     <!--Content-->
-    <div>
-        <div class="h-full w-full bg-cover bg-fixed">
-            <img src="images/transparenteGeschenke.png" class="opacity-100">
+    <main id="bg" style="background-image: url(images/transparenteGeschenke.png)">
+        <div class="flex items-start py-4 mx-5 space-x-3">
+            <label for="search-input">Suchfeld</label>
+            <input class="borders" type="text"></input>
         </div>
-    </div>
+    </main>
     <!--/Content-->
 
     <!--Footer-->
     <footer class="">
-        <section class="pt-3 pb-3 bg-slate-800 text-slate-300">
+        <section class=" pt-3 pb-3 bg-slate-800 text-slate-300">
             <div class="flex justify-center space-x-3">
                 <!-- Pinterest-->
                 <a href="#"> <img class="w-10" src="images/pinterest.png" alt="Pinterest Link"></a>
