@@ -1,11 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/*
-beides funktioniert, änderungen werden von input.css in output.css übernommen aber auf der Seite nicht umgesetzt.
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';*/
+
 
 .niceTitle {
     font-family: Pacifico;

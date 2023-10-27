@@ -10,7 +10,7 @@ function fetchData() {
             const dataList = document.getElementById('found-data');
             dataList.innerHTML = ''; // Lösche vorherige Daten
 
-            if (data.users) {
+            if (data.users && data.users.length > 0) {
                 for (user of data.users) {
                     console.log(user);
                     const listItem = document.createElement('li');
@@ -18,6 +18,11 @@ function fetchData() {
                     dataList.appendChild(listItem);
                 }
 
+            }
+            else {
+                const listItem = document.createElement('li');
+                listItem.textContent = 'Deine Suche ergab leider keinen Treffer'
+                dataList.appendChild(listItem);
             }
         })
         .catch(error => {

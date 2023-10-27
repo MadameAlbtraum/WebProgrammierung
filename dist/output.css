@@ -687,12 +687,6 @@ video {
   text-decoration-line: underline;
 }
 
-/*
-beides funktioniert, änderungen werden von input.css in output.css übernommen aber auf der Seite nicht umgesetzt.
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';*/
-
 .niceTitle {
   font-family: Pacifico;
   font-style: italic;
