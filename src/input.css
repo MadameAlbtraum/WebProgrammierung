@@ -17,9 +17,7 @@
 }
 
 #menu-icon {
-    font-size: 30px;
     cursor: pointer;
-    display: none;
 }
 
 #menu {
@@ -39,7 +37,9 @@
     }
 
     #menu.active ul {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     #menu-toggle:checked+#menu+#menu-icon {
@@ -50,7 +50,7 @@
 #bg {
     background-image: url('file:///c:/Users/albtr/OneDrive/Studium/3. Semester/Web/Portfolioaufgaben/webseite/src/images/transparenteGeschenke.png');
     background-size: cover;
-    height: 100vh;
+    background-attachment: fixed;
 }
 
 .borders {

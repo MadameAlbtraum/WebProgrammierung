@@ -35,3 +35,14 @@ const searchButton = document.getElementById('search-button');
 searchButton.addEventListener('click', fetchData);
 
 
+const menuToggle = document.getElementById("menu-toggle");
+const menu = document.getElementById("menu");
+
+menuToggle.addEventListener("change", function () {
+    if (menuToggle.checked) {
+        menu.classList.add("active");
+    } else {
+        menu.classList.remove("active");
+    }
+});
+
