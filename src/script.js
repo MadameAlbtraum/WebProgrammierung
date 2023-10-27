@@ -17,9 +17,24 @@ function fetchData() {
                     const usernameCell = row.insertCell(1);
 
                     // Fülle die Zellen der Tabelle mit den Daten aus der API
-                    nameCell.innerHTML = user.firstName + ' ' + user.lastName;
-                    usernameCell.innerHTML = user.username;
+                    nameCell.innerHTML = user.firstName + ' ' + user.lastName + user.id;
+                    usernameCell.innerHTML = `<a href="#" class="user-link">${user.username}</a>`; // Benutzernamen als anklickbaren Link
                     usernameCell.classList.add('pl-4');
+
+                    // Event Listener für den Benutzernamen-Link
+                    usernameCell.querySelector('.user-link').addEventListener('click', function (event) {
+                        event.preventDefault(); // Verhindert, dass der Link die Seite neu lädt
+                        const clickedUsername = user.username;
+                        const clickedUser = data.users.find(u => u.username === clickedUsername);
+
+                        if (clickedUser) {
+                            const userId = clickedUser.id;
+                            loadUserData(userId); // Lade die Daten aus einer anderen API
+                            console.log(userId);
+                            console.log(clickedUser);
+                            console.log(clickedUsername);
+                        }
+                    });
                 }
 
                 searchResultTitel.style.display = "block";
@@ -39,44 +54,40 @@ function fetchData() {
         });
 }
 
-/*
-// Funktion, um die Anfrage zu senden und Daten anzuzeigen
-function fetchData() {
-    const searchInput = document.getElementById('search-input').value;
-    const url = `https://dummyjson.com/users/search?q=${searchInput}`;
-    const searchResultTitel = document.getElementById('searchResult-titel'); // H2-Element
-    const searchResult = document.getElementById('searchResult'); // Div-Element
 
-    fetch(url)
+
+function loadUserData(userId) {
+    const cartUrl = `https://dummyjson.com/carts/user/99`; //hard codiert zum testen
+    const tableBody = document.getElementById('cartdat');
+    const searchResultTitel = document.getElementById('searchResult-titel');
+    const searchResult = document.getElementById('searchResult');
+    const cart = document.getElementById('cart');
+
+    fetch(cartUrl)
         .then(response => response.json())
-        .then(data => {
-            const dataList = document.getElementById('found-data');
-            dataList.innerHTML = ''; // Lösche vorherige Daten
+        .then(cartData => {
+            // Verarbeite die geladenen Daten aus der zweiten API hier
+            console.log('Geladene Warenkorbdaten:', cartData);
 
-            if (data.users && data.users.length > 0) {
-                for (user of data.users) {
-                    console.log(user);
-                    const listItem = document.createElement('li');
-                    listItem.textContent = user.firstName + ' ' + user.lastName + ' Username: ' + user.username; // Passe an, welche Daten angezeigt werden sollen
-                    dataList.appendChild(listItem);
-                }
-
-                searchResultTitel.style.display = "block";
-                searchResult.style.display = "block";
+            if (cartData.carts && cartData.carts.length == 0) {
+                const row = tableBody.insertRow();
+                const noResultsCell = row.insertCell(0);
+                noResultsCell.colSpan = 2; // Zelle über beide Spalten erstrecken
+                noResultsCell.textContent = 'Dieser User hat leider keinen Wunschzettel';
+                searchResultTitel.style.display = "none";
+                searchResult.style.display = "none";
+                cart.style.display = "block";
             }
-            else {
-                const listItem = document.createElement('li');
-                listItem.textContent = 'Deine Suche ergab leider keinen Treffer'
-                dataList.appendChild(listItem);
+            // Du kannst hier die Daten in der gewünschten Weise anzeigen oder verarbeiten
+            searchResultTitel.style.display = "none";
+            searchResult.style.display = "none";
+            cart.style.display = "block";
 
-                searchResultTitel.style.display = "block";
-                searchResult.style.display = "block";
-            }
         })
         .catch(error => {
-            console.error('Fehler beim Laden der Daten: ' + error);
+            console.error('Fehler beim Laden der Warenkorbdaten: ' + error);
         });
-}*/
+}
 
 
 // Event-Listener für den Button hinzufügen

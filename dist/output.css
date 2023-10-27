@@ -773,7 +773,8 @@ video {
 }
 
 #searchResult-titel,
-#searchResult {
+#searchResult,
+#cart {
   display: none;
 }
 
