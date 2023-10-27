@@ -714,6 +714,7 @@ video {
 
 #menu-icon {
   cursor: pointer;
+  display: none;
 }
 
 #menu {
@@ -741,6 +742,10 @@ video {
   #menu-toggle:checked+#menu+#menu-icon {
     display: block;
   }
+
+  #menu-icon {
+    display: block;
+  }
 }
 
 #bg {
@@ -753,6 +758,11 @@ video {
   border: 2px solid;
   border-radius: 3px;
   border-color: rgb(122, 122, 122);
+}
+
+#searchResult-titel,
+#searchResult {
+  display: none;
 }
 
 .hover\:bg-slate-700:hover {

@@ -18,6 +18,7 @@
 
 #menu-icon {
     cursor: pointer;
+    display: none;
 }
 
 #menu {
@@ -45,6 +46,10 @@
     #menu-toggle:checked+#menu+#menu-icon {
         display: block;
     }
+
+    #menu-icon {
+        display: block;
+    }
 }
 
 #bg {
@@ -57,4 +62,9 @@
     border: 2px solid;
     border-radius: 3px;
     border-color: rgb(122, 122, 122);
+}
+
+#searchResult-titel,
+#searchResult {
+    display: none;
 }

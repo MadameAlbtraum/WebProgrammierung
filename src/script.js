@@ -3,6 +3,8 @@
 function fetchData() {
     const searchInput = document.getElementById('search-input').value;
     const url = `https://dummyjson.com/users/search?q=${searchInput}`;
+    const searchResultTitel = document.getElementById('searchResult-titel'); // H2-Element
+    const searchResult = document.getElementById('searchResult'); // Div-Element
 
     fetch(url)
         .then(response => response.json())
@@ -18,17 +20,23 @@ function fetchData() {
                     dataList.appendChild(listItem);
                 }
 
+                searchResultTitel.style.display = "block";
+                searchResult.style.display = "block";
             }
             else {
                 const listItem = document.createElement('li');
                 listItem.textContent = 'Deine Suche ergab leider keinen Treffer'
                 dataList.appendChild(listItem);
+
+                searchResultTitel.style.display = "block";
+                searchResult.style.display = "block";
             }
         })
         .catch(error => {
             console.error('Fehler beim Laden der Daten: ' + error);
         });
 }
+
 
 // Event-Listener für den Button hinzufügen
 const searchButton = document.getElementById('search-button');
@@ -45,4 +53,3 @@ menuToggle.addEventListener("change", function () {
         menu.classList.remove("active");
     }
 });
-
