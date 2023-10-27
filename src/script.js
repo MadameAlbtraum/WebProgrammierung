@@ -1,4 +1,45 @@
+function fetchData() {
+    const searchInput = document.getElementById('search-input').value;
+    const url = `https://dummyjson.com/users/search?q=${searchInput}`;
+    const searchResultTitel = document.getElementById('searchResult-titel');
+    const searchResult = document.getElementById('searchResult');
+    const tableBody = document.getElementById('tabledat');
 
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            tableBody.innerHTML = ''; // Lösche vorherige Daten
+
+            if (data.users && data.users.length > 0) {
+                for (user of data.users) {
+                    const row = tableBody.insertRow();
+                    const nameCell = row.insertCell(0);
+                    const usernameCell = row.insertCell(1);
+
+                    // Fülle die Zellen der Tabelle mit den Daten aus der API
+                    nameCell.innerHTML = user.firstName + ' ' + user.lastName;
+                    usernameCell.innerHTML = user.username;
+                    usernameCell.classList.add('pl-4');
+                }
+
+                searchResultTitel.style.display = "block";
+                searchResult.style.display = "block";
+            } else {
+                const row = tableBody.insertRow();
+                const noResultsCell = row.insertCell(0);
+                noResultsCell.colSpan = 2; // Zelle über beide Spalten erstrecken
+                noResultsCell.textContent = 'Deine Suche ergab leider keinen Treffer';
+
+                searchResultTitel.style.display = "block";
+                searchResult.style.display = "block";
+            }
+        })
+        .catch(error => {
+            console.error('Fehler beim Laden der Daten: ' + error);
+        });
+}
+
+/*
 // Funktion, um die Anfrage zu senden und Daten anzuzeigen
 function fetchData() {
     const searchInput = document.getElementById('search-input').value;
@@ -35,7 +76,7 @@ function fetchData() {
         .catch(error => {
             console.error('Fehler beim Laden der Daten: ' + error);
         });
-}
+}*/
 
 
 // Event-Listener für den Button hinzufügen
