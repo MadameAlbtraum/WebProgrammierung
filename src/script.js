@@ -57,7 +57,7 @@ function fetchData() {
 
 
 function loadUserData(userId) {
-    const cartUrl = `https://dummyjson.com/carts/user/99`; //hard codiert zum testen
+    const cartUrl = `https://dummyjson.com/carts/user/1`; //hard codiert zum testen
     const tableBody = document.getElementById('cartdat');
     const searchResultTitel = document.getElementById('searchResult-titel');
     const searchResult = document.getElementById('searchResult');
@@ -69,7 +69,22 @@ function loadUserData(userId) {
             // Verarbeite die geladenen Daten aus der zweiten API hier
             console.log('Geladene Warenkorbdaten:', cartData);
 
-            if (cartData.carts && cartData.carts.length == 0) {
+            if (cartData.carts && cartData.carts.length > 0) {
+                for (const cart of cartData.carts) {
+                    for (const product of cart.products) { // Schleifenvariable als `const` deklarieren
+                        const row = tableBody.insertRow();
+                        const artikelCell = row.insertCell(0);
+
+                        const artikelLink = document.createElement("a");
+                        artikelLink.href = "#";
+                        artikelLink.className = "user-link";
+                        artikelLink.textContent = product.title;
+
+                        // Den Link zur Zelle hinzufügen
+                        artikelCell.appendChild(artikelLink);
+                    }
+                }
+            } else {
                 const row = tableBody.insertRow();
                 const noResultsCell = row.insertCell(0);
                 noResultsCell.colSpan = 2; // Zelle über beide Spalten erstrecken
@@ -78,6 +93,7 @@ function loadUserData(userId) {
                 searchResult.style.display = "none";
                 cart.style.display = "block";
             }
+
             // Du kannst hier die Daten in der gewünschten Weise anzeigen oder verarbeiten
             searchResultTitel.style.display = "none";
             searchResult.style.display = "none";
