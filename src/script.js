@@ -103,7 +103,7 @@ function fetchUserData() {
 
                         if (clickedUser) {
                             const userId = clickedUser.id;
-                            loadUserData(userId);
+                            loadUserData(userId, clickedUsername);
                             console.log(userId);
                             console.log(clickedUser);
                             console.log(clickedUsername);
@@ -119,9 +119,7 @@ function fetchUserData() {
                 const noResultsCell = row.insertCell(0);
                 noResultsCell.colSpan = 2;
                 noResultsCell.textContent = 'Deine Suche ergab leider keinen Treffer';
-
-                searchResultTitel.style.display = "block";
-                searchResult.style.display = "block";
+                switchView(currentView);
             }
         })
         .catch(error => {
@@ -130,7 +128,7 @@ function fetchUserData() {
 }
 
 
-function loadUserData(userId) {
+function loadUserData(userId, clickedUsername) {
     const cartUrl = `https://dummyjson.com/carts/user/${userId}`;
     currentView = 3;
 
@@ -142,7 +140,7 @@ function loadUserData(userId) {
             if (cartData.carts && cartData.carts.length > 0) {
                 const outerOl = document.createElement("ol");
                 const headerSpan = document.createElement("span");
-                headerSpan.textContent = "Wunschliste";
+                headerSpan.textContent = "Wunschliste von " + clickedUsername;
                 headerSpan.className = "font-bold text-lg"
                 outerOl.appendChild(headerSpan);
                 document.body.appendChild(outerOl);
@@ -178,9 +176,7 @@ function loadUserData(userId) {
                 noResults.className = "text-pink-600 font-bold";
                 noResults.textContent = 'Dieser User hat leider keinen Wunschzettel.';
                 wishListDiv.appendChild(noResults);
-                searchResultTitel.style.display = "none";
-                searchResult.style.display = "none";
-                cart.style.display = "block";
+                switchView(currentView);
             }
 
             switchView(currentView);
@@ -210,6 +206,7 @@ function loadProductData(clickedProductId) {
             productData.images.forEach(imageUrl => {
                 const img = document.createElement('img');
                 img.src = imageUrl;
+                img.className = "inline max-width-images m-2 border border-solid border-2 border-slate-800";
                 imageArray.appendChild(img);
             });
 

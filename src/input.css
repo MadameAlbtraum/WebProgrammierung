@@ -63,3 +63,8 @@
     border-radius: 3px;
     border-color: rgb(122, 122, 122);
 }
+
+.max-width-images {
+    max-width: 40%;
+    height: auto;
+}
