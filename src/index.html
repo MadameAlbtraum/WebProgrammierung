@@ -47,7 +47,7 @@
 
     <!--Content-->
     <main id="bg" class="overflow-auto min-h-screen">
-        <div class="font-serif text-slate-800 py-4 pl-8 sm:w-full md:w-1/2 lg:w-1/3">
+        <div class="font-serif text-slate-800 py-4 pl-8 sm:w-full md:w-2/3 lg:w-2/3">
             Du willst jemanden beschenken und hast keine Ahnung womit?
             Dann bist du hier genau richtig!!!
             Gib einfach den Usernamen ein und schau dir an, was auf seiner Wunschliste steht.
@@ -80,34 +80,37 @@
                 </div>
             </div>
 
-            <div id="product">
-                <div id="productDetails" class="grid md:grid-cols-8 md:grid-rows-2 sm:grid-col-2 sm:grid-rows-11 ">
-                    <div>
+            <div id="product" class="flex">
+                <div id="productDetails" class="grid md:grid-cols-6 md:grid-rows-3 sm:grid-col-2 sm:grid-rows-11 ">
+                    <div class="font-bold w-20">
                         Marke:
                     </div>
-                    <div id="marke">
 
+                    <div id="marke">
                     </div>
-                    <div>
+
+                    <div class="font-bold w-20">
                         Titel:
                     </div>
+
                     <div id="titel">
+                    </div>
 
-                    </div>
-                    <div>
-                        Beschreibung:
-                    </div>
-                    <div id="beschreibung">
-
-                    </div>
-                    <div>
+                    <div class="font-bold w-20">
                         Preis:
                     </div>
+
                     <div id="preis">
-
                     </div>
-                    <div id="bilder">
 
+                    <div class="font-bold col-span-2">
+                        Beschreibung:
+                    </div>
+
+                    <div id="beschreibung" class="col-span-4">
+                    </div>
+
+                    <div id="bilder">
                     </div>
                     <!-- brand title descprition preis -->
                     <!-- bilder-->

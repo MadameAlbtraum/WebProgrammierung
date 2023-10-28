@@ -139,7 +139,20 @@ function loadProductData(clickedProductId) {
         .then(response => response.json())
         .then(productData => {
             const price = document.getElementById('preis');
-            price.textContent = productData.price;
+            const brand = document.getElementById('marke');
+            const desc = document.getElementById('beschreibung');
+            const title = document.getElementById('titel')
+            //const img = document.getElementById('bilder');
+            price.textContent = productData.price + '€';
+            brand.textContent = productData.brand;
+            desc.textContent = productData.description;
+            title.textContent = productData.title;
+            //img.textContent = productData.images;
+            /*productData.images.forEach(imageUrl => {
+                const img = document.createElement('img');
+                img.src = imageUrl;
+                img.appendChild(img);
+            });*/
 
             searchResultTitel.style.display = "none";
             searchResult.style.display = "none";
