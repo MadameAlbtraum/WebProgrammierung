@@ -89,11 +89,22 @@ function loadUserData(userId) {
                         li.className = "mb-1";
                         const artikelLink = document.createElement("a");
                         artikelLink.href = "#";
-                        artikelLink.className = "user-link";
+                        artikelLink.className = "product-link";
                         artikelLink.textContent = product.title;
+                        artikelLink.productId = product.id;
                         li.appendChild(artikelLink);
                         outerOl.appendChild(li);
                     }
+                    outerOl.addEventListener("click", function (event) {
+                        if (event.target.classList.contains("product-link")) {
+                            event.preventDefault();
+                            const clickedProductId = event.target.productId;
+                            // Hier können Sie die Produktinformationen basierend auf clickedProductId laden und anzeigen
+                            console.log("Clicked Product ID: " + clickedProductId);
+                            // Fügen Sie hier Ihren Code hinzu, um die Produktinformationen zu laden und anzuzeigen
+                        }
+                    });
+
                 }
 
                 wishListDiv.appendChild(outerOl);
