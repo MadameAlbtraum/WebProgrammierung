@@ -5,6 +5,7 @@ const backButton = document.getElementById('back');
 const textStart = document.getElementById('textStart');
 const searchResultTitel = document.getElementById('searchResult-titel');
 const searchResult = document.getElementById('searchResult');
+const wishListH2 = document.getElementById('wishListH2')
 const cart = document.getElementById('cart');
 const wishListDiv = document.getElementById('wishList');
 const tableBody = document.getElementById('tabledat');
@@ -23,6 +24,7 @@ function switchView(view) {
             backButton.style.display = "none";
             searchResultTitel.style.display = "none";
             searchResult.style.display = "none";
+            wishListH2.style.display = "none";
             cart.style.display = "none";
             productDiv.style.display = "none";
             break;
@@ -34,6 +36,7 @@ function switchView(view) {
             backButton.style.display = "block";
             searchResultTitel.style.display = "block";
             searchResult.style.display = "block";
+            wishListH2.style.display = "none";
             cart.style.display = "none";
             productDiv.style.display = "none";
             break;
@@ -45,6 +48,7 @@ function switchView(view) {
             backButton.style.display = "block";
             searchResultTitel.style.display = "none";
             searchResult.style.display = "none";
+            wishListH2.style.display = "block";
             cart.style.display = "block";
             productDiv.style.display = "none";
             break;
@@ -56,6 +60,7 @@ function switchView(view) {
             backButton.style.display = "block";
             searchResultTitel.style.display = "none";
             searchResult.style.display = "none";
+            wishListH2.style.display = "block";
             cart.style.display = "none";
             productDiv.style.display = "block";
             break;
@@ -138,11 +143,10 @@ function loadUserData(userId, clickedUsername) {
             wishListDiv.innerHTML = ''; //lösche alte Daten
 
             if (cartData.carts && cartData.carts.length > 0) {
+                wishListH2.textContent = "Wunschliste von " + clickedUsername;
+                const headerH2 = document.createElement("h2");
                 const outerOl = document.createElement("ol");
-                const headerSpan = document.createElement("span");
-                headerSpan.textContent = "Wunschliste von " + clickedUsername;
-                headerSpan.className = "font-bold text-lg"
-                outerOl.appendChild(headerSpan);
+
                 document.body.appendChild(outerOl);
                 outerOl.className = "list-disc pl-4";
 
