@@ -61,7 +61,6 @@ function fetchData() {
 }
 
 
-
 function loadUserData(userId) {
     const cartUrl = `https://dummyjson.com/carts/user/${userId}`;
     const wishListDiv = document.getElementById('wishList');
@@ -99,7 +98,7 @@ function loadUserData(userId) {
                         if (event.target.classList.contains("product-link")) {
                             event.preventDefault();
                             const clickedProductId = event.target.productId;
-                            // Hier können Sie die Produktinformationen basierend auf clickedProductId laden und anzeigen
+                            loadProductData(clickedProductId);
                             console.log("Clicked Product ID: " + clickedProductId);
                             // Fügen Sie hier Ihren Code hinzu, um die Produktinformationen zu laden und anzuzeigen
                         }
@@ -128,7 +127,26 @@ function loadUserData(userId) {
         });
 }
 
+function loadProductData(clickedProductId) {
+    const productUrl = `https://dummyjson.com/products/${clickedProductId}`;
+    const productDiv = document.getElementById('product');
+    const productDetails = document.getElementById('productDetails');
+    const searchResultTitel = document.getElementById('searchResult-titel');
+    const searchResult = document.getElementById('searchResult');
+    const cart = document.getElementById('cart');
 
+    fetch(productUrl)
+        .then(response => response.json())
+        .then(productData => {
+            const price = document.getElementById('preis');
+            price.textContent = productData.price;
+
+            searchResultTitel.style.display = "none";
+            searchResult.style.display = "none";
+            cart.style.display = "none";
+            productDiv.style.display = "block";
+        })
+}
 // Event-Listener für Button 
 const searchButton = document.getElementById('search-button');
 searchButton.addEventListener('click', fetchData);
