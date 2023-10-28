@@ -60,7 +60,7 @@ function switchView(view) {
             backButton.style.display = "block";
             searchResultTitel.style.display = "none";
             searchResult.style.display = "none";
-            wishListH2.style.display = "block";
+            wishListH2.style.display = "none";
             cart.style.display = "none";
             productDiv.style.display = "block";
             break;
