@@ -29,7 +29,7 @@
                         <a href="#">Start</a>
                     </li>
                     <li class="inline pr-4">
-                        <a href="#">Wunschliste</a>
+                        <a href="#">Konto</a>
                     </li>
                     <li class="inline pr-4">
                         <a href="#">Warenkorb</a>
@@ -48,19 +48,24 @@
     <!--Content-->
     <main id="bg" class="overflow-auto min-h-screen">
         <div class="font-serif text-slate-800 py-4 pl-8 sm:w-full md:w-2/3 lg:w-2/3">
-            Du willst jemanden beschenken und hast keine Ahnung womit?
-            Dann bist du hier genau richtig!!!
-            Gib einfach den Usernamen ein und schau dir an, was auf seiner Wunschliste steht.
+            <p id="textStart">Du willst jemanden beschenken und hast keine Ahnung womit?
+                Dann bist du hier genau richtig!!!
+                Gib einfach den Usernamen ein und schau dir an, was auf seiner Wunschliste steht.</p>
 
             <div class="flex flex-col items-start py-4 mx-5 space-y-3 sm:flex-row sm:items-center sm:space-x-3">
-                <label class="pt-3" for="search-input">User:</label>
+                <label class="pt-3" for="search-input" id="sButtonLabel">User:</label>
                 <input id="search-input" name="search" class="borders" type="text">
                 <button id="search-button"
                     class="rounded-md px-2 bg-slate-800 hover:bg-slate-700 text-slate-300 active:translate-y-1">
                     Suchen
                 </button>
             </div>
-            <h2 id="searchResult-titel" class="text-xl py-4 pl-5 font-bold">Ergebnis deiner Suche: </h2>
+            <button id="back"
+                class="ml-5 inline rounded-md px-2 bg-slate-800 hover:bg-slate-700 text-slate-300 active:translate-y-1">zurück</button>
+
+
+            <h2 id="searchResult-titel" class="text-xl py-4 pl-5 font-bold">Ergebnis deiner Suche:
+            </h2>
             <div id="" class="text-slate-800 pl-5">
                 <table id="searchResult">
                     <thead>
@@ -81,39 +86,40 @@
             </div>
 
             <div id="product" class="flex">
-                <div id="productDetails" class="grid md:grid-cols-6 md:grid-rows-3 sm:grid-col-2 sm:grid-rows-11 ">
+                <div id="productDetails" class="sm:grid md:grid-cols-6 md:grid-rows-3 sm:grid-cols-4 sm:grid-rows-6 ">
                     <div class="font-bold w-20">
                         Marke:
                     </div>
 
-                    <div id="marke">
+                    <div id="brand">
                     </div>
 
                     <div class="font-bold w-20">
                         Titel:
                     </div>
 
-                    <div id="titel">
+                    <div id="title">
                     </div>
 
                     <div class="font-bold w-20">
                         Preis:
                     </div>
 
-                    <div id="preis">
+                    <div id="price" class="sm:col-span-2">
                     </div>
 
-                    <div class="font-bold col-span-2">
+                    <div class="font-bold sm:col-span-2">
                         Beschreibung:
                     </div>
 
-                    <div id="beschreibung" class="col-span-4">
+                    <div id="description" class="sm:col-span-4">
                     </div>
 
-                    <div id="bilder">
-                    </div>
+
                     <!-- brand title descprition preis -->
                     <!-- bilder-->
+                </div>
+                <div id="images">
                 </div>
             </div>
 

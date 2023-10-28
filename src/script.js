@@ -1,10 +1,80 @@
+const searchInput = document.getElementById('search-input');
+const searchButton = document.getElementById('search-button');
+const labelSbutton = document.getElementById('sButtonLabel');
+const backButton = document.getElementById('back');
+const textStart = document.getElementById('textStart');
+const searchResultTitel = document.getElementById('searchResult-titel');
+const searchResult = document.getElementById('searchResult');
+const cart = document.getElementById('cart');
+const wishListDiv = document.getElementById('wishList');
+const tableBody = document.getElementById('tabledat');
+const productDiv = document.getElementById('product');
+const productDetails = document.getElementById('productDetails');
+const productImage = document.getElementById('images');
+var currentView = 1;//Ansicht, Standard ist 1
+
+function switchView(view) {
+    switch (view) {
+        case 1:
+            textStart.style.display = "block";
+            labelSbutton.style.display = "block";
+            searchButton.style.display = "block";
+            searchInput.style.display = "block";
+            backButton.style.display = "none";
+            searchResultTitel.style.display = "none";
+            searchResult.style.display = "none";
+            cart.style.display = "none";
+            productDiv.style.display = "none";
+            break;
+        case 2:
+            textStart.style.display = "none";
+            labelSbutton.style.display = "none";
+            searchButton.style.display = "none";
+            searchInput.style.display = "none";
+            backButton.style.display = "block";
+            searchResultTitel.style.display = "block";
+            searchResult.style.display = "block";
+            cart.style.display = "none";
+            productDiv.style.display = "none";
+            break;
+        case 3:
+            textStart.style.display = "none";
+            labelSbutton.style.display = "none";
+            searchButton.style.display = "none";
+            searchInput.style.display = "none";
+            backButton.style.display = "block";
+            searchResultTitel.style.display = "none";
+            searchResult.style.display = "none";
+            cart.style.display = "block";
+            productDiv.style.display = "none";
+            break;
+        case 4:
+            textStart.style.display = "none";
+            labelSbutton.style.display = "none";
+            searchButton.style.display = "none";
+            searchInput.style.display = "none";
+            backButton.style.display = "block";
+            searchResultTitel.style.display = "none";
+            searchResult.style.display = "none";
+            cart.style.display = "none";
+            productDiv.style.display = "block";
+            break;
+
+    }
+}
+function navigateBack() {
+    if (currentView > 1) {
+        currentView--;
+        switchView(currentView);
+    }
+}
+switchView(currentView);//Standardansicht setzen
+
 // nach user suchen und Date laden
-function fetchData() {
-    const searchInput = document.getElementById('search-input').value;
-    const url = `https://dummyjson.com/users/search?q=${searchInput}`;
-    const searchResultTitel = document.getElementById('searchResult-titel');
-    const searchResult = document.getElementById('searchResult');
-    const tableBody = document.getElementById('tabledat');
+function fetchUserData() {
+    const searchValue = searchInput.value;
+    const url = `https://dummyjson.com/users/search?q=${searchValue}`;
+    currentView = 2;
 
     fetch(url)
         .then(response => response.json())
@@ -41,8 +111,7 @@ function fetchData() {
                     });
                 }
 
-                searchResultTitel.style.display = "block";
-                searchResult.style.display = "block";
+                switchView(currentView);
             }
 
             else {
@@ -63,15 +132,12 @@ function fetchData() {
 
 function loadUserData(userId) {
     const cartUrl = `https://dummyjson.com/carts/user/${userId}`;
-    const wishListDiv = document.getElementById('wishList');
-    const searchResultTitel = document.getElementById('searchResult-titel');
-    const searchResult = document.getElementById('searchResult');
-    const cart = document.getElementById('cart');
+    currentView = 3;
 
     fetch(cartUrl)
         .then(response => response.json())
         .then(cartData => {
-            console.log('Geladene Warenkorbdaten:', cartData);
+            wishListDiv.innerHTML = ''; //lösche alte Daten
 
             if (cartData.carts && cartData.carts.length > 0) {
                 const outerOl = document.createElement("ol");
@@ -117,10 +183,7 @@ function loadUserData(userId) {
                 cart.style.display = "block";
             }
 
-            searchResultTitel.style.display = "none";
-            searchResult.style.display = "none";
-            cart.style.display = "block";
-
+            switchView(currentView);
         })
         .catch(error => {
             console.error('Fehler beim Laden der Warenkorbdaten: ' + error);
@@ -129,40 +192,41 @@ function loadUserData(userId) {
 
 function loadProductData(clickedProductId) {
     const productUrl = `https://dummyjson.com/products/${clickedProductId}`;
-    const productDiv = document.getElementById('product');
-    const productDetails = document.getElementById('productDetails');
-    const searchResultTitel = document.getElementById('searchResult-titel');
-    const searchResult = document.getElementById('searchResult');
-    const cart = document.getElementById('cart');
-
+    currentView = 4;
     fetch(productUrl)
         .then(response => response.json())
         .then(productData => {
-            const price = document.getElementById('preis');
-            const brand = document.getElementById('marke');
-            const desc = document.getElementById('beschreibung');
-            const title = document.getElementById('titel')
-            //const img = document.getElementById('bilder');
+            productImage.innerHTML = '';
+            const price = document.getElementById('price');
+            const brand = document.getElementById('brand');
+            const desc = document.getElementById('description');
+            const title = document.getElementById('title')
+            const imageArray = document.getElementById('images');
             price.textContent = productData.price + '€';
             brand.textContent = productData.brand;
             desc.textContent = productData.description;
             title.textContent = productData.title;
-            //img.textContent = productData.images;
-            /*productData.images.forEach(imageUrl => {
+            //imageArray.textContent = productData.images;
+            productData.images.forEach(imageUrl => {
                 const img = document.createElement('img');
                 img.src = imageUrl;
-                img.appendChild(img);
-            });*/
+                imageArray.appendChild(img);
+            });
 
-            searchResultTitel.style.display = "none";
-            searchResult.style.display = "none";
-            cart.style.display = "none";
-            productDiv.style.display = "block";
+            switchView(currentView);
         })
 }
-// Event-Listener für Button 
-const searchButton = document.getElementById('search-button');
-searchButton.addEventListener('click', fetchData);
+
+// Event Listener für Tastatureingabe
+searchInput.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        fetchUserData();
+    }
+})
+// Event-Listener für Buttons
+searchButton.addEventListener('click', fetchUserData);
+backButton.addEventListener('click', navigateBack);
 
 //Hamburger Menü
 const menuToggle = document.getElementById("menu-toggle");
