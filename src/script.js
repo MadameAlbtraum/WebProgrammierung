@@ -9,7 +9,6 @@ function fetchData() {
         .then(response => response.json())
         .then(data => {
             tableBody.innerHTML = ''; // Lösche vorherige Daten
-
             if (data.users && data.users.length > 0) {
                 for (user of data.users) {
                     const row = tableBody.insertRow();
@@ -21,10 +20,14 @@ function fetchData() {
                     usernameCell.innerHTML = `<a href="#" class="user-link">${user.username}</a>`; // Benutzernamen als anklickbaren Link
                     usernameCell.classList.add('pl-4');
 
+                    // Hänge den aktuellen Benutzer an das userLink-Element
+                    const userLink = usernameCell.querySelector('.user-link');
+                    userLink.user = user;
+
                     // Event Listener für den Benutzernamen-Link
-                    usernameCell.querySelector('.user-link').addEventListener('click', function (event) {
+                    userLink.addEventListener('click', function (event) {
                         event.preventDefault(); // Verhindert, dass der Link die Seite neu lädt
-                        const clickedUsername = user.username;
+                        const clickedUsername = this.user.username;
                         const clickedUser = data.users.find(u => u.username === clickedUsername);
 
                         if (clickedUser) {
@@ -39,7 +42,9 @@ function fetchData() {
 
                 searchResultTitel.style.display = "block";
                 searchResult.style.display = "block";
-            } else {
+            }
+
+            else {
                 const row = tableBody.insertRow();
                 const noResultsCell = row.insertCell(0);
                 noResultsCell.colSpan = 2; // Zelle über beide Spalten erstrecken
@@ -57,8 +62,8 @@ function fetchData() {
 
 
 function loadUserData(userId) {
-    const cartUrl = `https://dummyjson.com/carts/user/1`; //hard codiert zum testen
-    const tableBody = document.getElementById('cartdat');
+    const cartUrl = `https://dummyjson.com/carts/user/${userId}`; //hard codiert zum Testen
+    const wishListDiv = document.getElementById('wishList');
     const searchResultTitel = document.getElementById('searchResult-titel');
     const searchResult = document.getElementById('searchResult');
     const cart = document.getElementById('cart');
@@ -70,25 +75,28 @@ function loadUserData(userId) {
             console.log('Geladene Warenkorbdaten:', cartData);
 
             if (cartData.carts && cartData.carts.length > 0) {
+                const ol = document.createElement("ol");
+                ol.className = "list-disc pl-4";
+
                 for (const cart of cartData.carts) {
                     for (const product of cart.products) { // Schleifenvariable als `const` deklarieren
-                        const row = tableBody.insertRow();
-                        const artikelCell = row.insertCell(0);
-
+                        const li = document.createElement("li");
+                        li.className = "mb-1";
                         const artikelLink = document.createElement("a");
                         artikelLink.href = "#";
                         artikelLink.className = "user-link";
                         artikelLink.textContent = product.title;
-
-                        // Den Link zur Zelle hinzufügen
-                        artikelCell.appendChild(artikelLink);
+                        li.appendChild(artikelLink);
+                        ol.appendChild(li);
                     }
                 }
+
+                wishListDiv.appendChild(ol);
             } else {
-                const row = tableBody.insertRow();
-                const noResultsCell = row.insertCell(0);
-                noResultsCell.colSpan = 2; // Zelle über beide Spalten erstrecken
-                noResultsCell.textContent = 'Dieser User hat leider keinen Wunschzettel';
+                const noResults = document.createElement("p");
+                noResults.className = "text-pink-600 font-bold";
+                noResults.textContent = 'Dieser User hat leider keinen Wunschzettel.';
+                wishListDiv.appendChild(noResults);
                 searchResultTitel.style.display = "none";
                 searchResult.style.display = "none";
                 cart.style.display = "block";
@@ -110,7 +118,7 @@ function loadUserData(userId) {
 const searchButton = document.getElementById('search-button');
 searchButton.addEventListener('click', fetchData);
 
-
+//Hamburger Menü
 const menuToggle = document.getElementById("menu-toggle");
 const menu = document.getElementById("menu");
 
