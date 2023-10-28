@@ -1,3 +1,4 @@
+// nach user suchen und Date laden
 function fetchData() {
     const searchInput = document.getElementById('search-input').value;
     const url = `https://dummyjson.com/users/search?q=${searchInput}`;
@@ -15,24 +16,24 @@ function fetchData() {
                     const nameCell = row.insertCell(0);
                     const usernameCell = row.insertCell(1);
 
-                    // Fülle die Zellen der Tabelle mit den Daten aus der API
-                    nameCell.innerHTML = user.firstName + ' ' + user.lastName + user.id;
-                    usernameCell.innerHTML = `<a href="#" class="user-link">${user.username}</a>`; // Benutzernamen als anklickbaren Link
+                    // Tabelle mit Daten füllen
+                    nameCell.innerHTML = user.firstName + ' ' + user.lastName;
+                    usernameCell.innerHTML = `<a href="#" class="user-link">${user.username}</a>`;
                     usernameCell.classList.add('pl-4');
 
-                    // Hänge den aktuellen Benutzer an das userLink-Element
+                    // user an link hängen
                     const userLink = usernameCell.querySelector('.user-link');
                     userLink.user = user;
 
-                    // Event Listener für den Benutzernamen-Link
+                    // Event Listener für Benutzernamen-Link
                     userLink.addEventListener('click', function (event) {
-                        event.preventDefault(); // Verhindert, dass der Link die Seite neu lädt
+                        event.preventDefault();
                         const clickedUsername = this.user.username;
                         const clickedUser = data.users.find(u => u.username === clickedUsername);
 
                         if (clickedUser) {
                             const userId = clickedUser.id;
-                            loadUserData(userId); // Lade die Daten aus einer anderen API
+                            loadUserData(userId);
                             console.log(userId);
                             console.log(clickedUser);
                             console.log(clickedUsername);
@@ -47,7 +48,7 @@ function fetchData() {
             else {
                 const row = tableBody.insertRow();
                 const noResultsCell = row.insertCell(0);
-                noResultsCell.colSpan = 2; // Zelle über beide Spalten erstrecken
+                noResultsCell.colSpan = 2;
                 noResultsCell.textContent = 'Deine Suche ergab leider keinen Treffer';
 
                 searchResultTitel.style.display = "block";
@@ -62,7 +63,7 @@ function fetchData() {
 
 
 function loadUserData(userId) {
-    const cartUrl = `https://dummyjson.com/carts/user/${userId}`; //hard codiert zum Testen
+    const cartUrl = `https://dummyjson.com/carts/user/${userId}`;
     const wishListDiv = document.getElementById('wishList');
     const searchResultTitel = document.getElementById('searchResult-titel');
     const searchResult = document.getElementById('searchResult');
@@ -71,15 +72,19 @@ function loadUserData(userId) {
     fetch(cartUrl)
         .then(response => response.json())
         .then(cartData => {
-            // Verarbeite die geladenen Daten aus der zweiten API hier
             console.log('Geladene Warenkorbdaten:', cartData);
 
             if (cartData.carts && cartData.carts.length > 0) {
-                const ol = document.createElement("ol");
-                ol.className = "list-disc pl-4";
+                const outerOl = document.createElement("ol");
+                const headerSpan = document.createElement("span");
+                headerSpan.textContent = "Wunschliste";
+                headerSpan.className = "font-bold text-lg"
+                outerOl.appendChild(headerSpan);
+                document.body.appendChild(outerOl);
+                outerOl.className = "list-disc pl-4";
 
                 for (const cart of cartData.carts) {
-                    for (const product of cart.products) { // Schleifenvariable als `const` deklarieren
+                    for (const product of cart.products) {
                         const li = document.createElement("li");
                         li.className = "mb-1";
                         const artikelLink = document.createElement("a");
@@ -87,11 +92,11 @@ function loadUserData(userId) {
                         artikelLink.className = "user-link";
                         artikelLink.textContent = product.title;
                         li.appendChild(artikelLink);
-                        ol.appendChild(li);
+                        outerOl.appendChild(li);
                     }
                 }
 
-                wishListDiv.appendChild(ol);
+                wishListDiv.appendChild(outerOl);
             } else {
                 const noResults = document.createElement("p");
                 noResults.className = "text-pink-600 font-bold";
@@ -102,7 +107,6 @@ function loadUserData(userId) {
                 cart.style.display = "block";
             }
 
-            // Du kannst hier die Daten in der gewünschten Weise anzeigen oder verarbeiten
             searchResultTitel.style.display = "none";
             searchResult.style.display = "none";
             cart.style.display = "block";
@@ -114,7 +118,7 @@ function loadUserData(userId) {
 }
 
 
-// Event-Listener für den Button hinzufügen
+// Event-Listener für Button 
 const searchButton = document.getElementById('search-button');
 searchButton.addEventListener('click', fetchData);
 
