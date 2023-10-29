@@ -6,7 +6,7 @@
 .niceTitle {
     font-family: Pacifico;
     font-style: italic;
-    background-image: url('file:///c:/Users/albtr/OneDrive/Studium/3. Semester/Web/Portfolioaufgaben/webseite/src/images/headerText.png');
+    background-image: url('images/headerText.png');
     background-repeat: no-repeat;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -53,7 +53,7 @@
 }
 
 #bg {
-    background-image: url('file:///c:/Users/albtr/OneDrive/Studium/3. Semester/Web/Portfolioaufgaben/webseite/src/images/transparenteGeschenke.png');
+    background-image: url('/images/transparenteGeschenke.png');
     background-size: cover;
     background-attachment: fixed;
 }

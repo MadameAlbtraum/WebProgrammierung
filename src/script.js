@@ -28,6 +28,7 @@ const switchView = (view) => {
             wishListH2.style.display = "none";
             cart.style.display = "none";
             productDiv.style.display = "none";
+            //history.pushState(null, null, "Usersuche.html");
             break;
         case 2:
             textStart.style.display = "none";
@@ -40,6 +41,7 @@ const switchView = (view) => {
             wishListH2.style.display = "none";
             cart.style.display = "none";
             productDiv.style.display = "none";
+            //history.pushState(null, null, "Ergebnis.html");
             break;
         case 3:
             textStart.style.display = "none";
@@ -52,6 +54,7 @@ const switchView = (view) => {
             wishListH2.style.display = "block";
             cart.style.display = "block";
             productDiv.style.display = "none";
+            //history.pushState(null, null, "Wunschliste.html");
             break;
         case 4:
             textStart.style.display = "none";
@@ -64,11 +67,12 @@ const switchView = (view) => {
             wishListH2.style.display = "none";
             cart.style.display = "none";
             productDiv.style.display = "block";
+            //history.pushState(null, null, "Produktdetail.html");
             break;
 
     }
 }
-function navigateBack() {
+const navigateBack = () => {
     if (currentView > 1) {
         currentView--;
         switchView(currentView);
@@ -77,7 +81,7 @@ function navigateBack() {
 switchView(currentView);//Standardansicht setzen
 
 // nach User suchen und Date laden
-function fetchUserData() {
+const fetchUserData = () => {
     const searchValue = searchInput.value;
     const url = `https://dummyjson.com/users/search?q=${searchValue}`;
     currentView = 2;
