@@ -1,16 +1,17 @@
-import { currentView, labelSbutton, searchButton, backButton, cart, productDetails, productDiv, productImage, searchInput, searchResult, searchResultTitel, tableBody, textStart, wishListDiv, wishListH2 } from './const.js';
+import { searchInput, tableBody } from './const.js';
+import { switchView } from './switchView.js';
+import { loadUserData } from './loadUserData.js';
 
 export const fetchUserData = () => {
     const searchValue = searchInput.value;
     const url = `https://dummyjson.com/users/search?q=${searchValue}`;
-    currentView = 2;
-
+    console.log("fetchUserData");
     fetch(url)
         .then(response => response.json())
         .then(data => {
             tableBody.innerHTML = ''; // Lösche vorherige Daten
             if (data.users && data.users.length > 0) {
-                for (user of data.users) {
+                data.users.forEach((user => {
                     const row = tableBody.insertRow();
                     const nameCell = row.insertCell(0);
                     const usernameCell = row.insertCell(1);
@@ -39,9 +40,9 @@ export const fetchUserData = () => {
                             console.log(clickedUsername);
                         }
                     });
-                }
+                }));
 
-                switchView(currentView);
+                switchView(2);
             }
             // Aktion, falls kein User gefunden wird
             else {
@@ -50,7 +51,7 @@ export const fetchUserData = () => {
                 noResultsCell.colSpan = 2;
                 noResultsCell.className = "text-pink-600 font-bold";
                 noResultsCell.textContent = 'Deine Suche ergab leider keinen Treffer.';
-                switchView(currentView);
+                switchView(2);
             }
         })
         .catch(error => {

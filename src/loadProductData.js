@@ -1,8 +1,8 @@
-import { currentView, labelSbutton, searchButton, backButton, cart, productDetails, productDiv, productImage, searchInput, searchResult, searchResultTitel, tableBody, textStart, wishListDiv, wishListH2 } from './const.js';
+import { productImage } from './const.js';
+import { switchView } from './switchView.js';
 
 export const loadProductData = (clickedProductId) => {
     const productUrl = `https://dummyjson.com/products/${clickedProductId}`;
-    currentView = 4;
     fetch(productUrl)
         .then(response => response.json())
         .then(productData => {
@@ -26,6 +26,6 @@ export const loadProductData = (clickedProductId) => {
                 imageArray.appendChild(img);
             });
 
-            switchView(currentView);
+            switchView(4);
         })
 }

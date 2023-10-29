@@ -1,5 +1,11 @@
-import { currentView, labelSbutton, searchButton, backButton, cart, productDetails, productDiv, productImage, searchInput, searchResult, searchResultTitel, tableBody, textStart, wishListDiv, wishListH2 } from './const.js';
-
+import { labelSbutton, searchButton, backButton, cart, productDetails, productDiv, productImage, searchInput, searchResult, searchResultTitel, tableBody, textStart, wishListDiv, wishListH2 } from './const.js';
+var currentView = 1;
+export const navigateBack = () => {
+    if (currentView > 1) {
+        currentView--;
+        switchView(currentView);
+    }
+}
 export const switchView = (view) => {
     switch (view) {
         case 1:
@@ -54,12 +60,7 @@ export const switchView = (view) => {
             productDiv.style.display = "block";
             history.pushState(null, null, "Produktdetail");
             break;
-
     }
+    currentView = view;
+    console.log("currentView:", currentView);
 }
-const navigateBack = () => {
-    if (currentView > 1) {
-        currentView--;
-        switchView(currentView);
-    }
-} 

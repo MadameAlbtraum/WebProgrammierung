@@ -1,4 +1,3 @@
-export var currentView = 1;//Ansicht, Standard ist 1
 export const labelSbutton = document.getElementById('sButtonLabel');
 export const searchInput = document.getElementById('search-input');
 export const searchButton = document.getElementById('search-button');

@@ -1,9 +1,9 @@
-import { currentView, labelSbutton, searchButton, backButton, cart, productDetails, productDiv, productImage, searchInput, searchResult, searchResultTitel, tableBody, textStart, wishListDiv, wishListH2 } from './const.js';
+import { wishListDiv, wishListH2 } from './const.js';
+import { switchView } from './switchView.js';
+import { loadProductData } from './loadProductData.js';
 
 export const loadUserData = (userId, clickedUsername) => {
     const cartUrl = `https://dummyjson.com/carts/user/${userId}`;
-    currentView = 3;
-
     fetch(cartUrl)
         .then(response => response.json())
         .then(cartData => {
@@ -47,10 +47,10 @@ export const loadUserData = (userId, clickedUsername) => {
                 noResults.className = "text-pink-600 font-bold";
                 noResults.textContent = 'Dieser User hat leider keinen Wunschzettel.';
                 wishListDiv.appendChild(noResults);
-                switchView(currentView);
+                switchView(3);
             }
 
-            switchView(currentView);
+            switchView(3);
         })
         .catch(error => {
             console.error('Fehler beim Laden der Warenkorbdaten: ' + error);
