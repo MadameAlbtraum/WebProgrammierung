@@ -15,7 +15,7 @@ const productImage = document.getElementById('images');
 var currentView = 1;//Ansicht, Standard ist 1
 
 // Ansichten setzen
-function switchView(view) {
+const switchView = (view) => {
     switch (view) {
         case 1:
             textStart.style.display = "block";
@@ -136,7 +136,7 @@ function fetchUserData() {
 }
 
 // Abruf & Laden der Warenkorbdateen anhand geklickter UserId
-function loadUserData(userId, clickedUsername) {
+const loadUserData = (userId, clickedUsername) => {
     const cartUrl = `https://dummyjson.com/carts/user/${userId}`;
     currentView = 3;
 
@@ -194,7 +194,7 @@ function loadUserData(userId, clickedUsername) {
 }
 
 // Produktdaten abfragen und laden
-function loadProductData(clickedProductId) {
+const loadProductData = (clickedProductId) => {
     const productUrl = `https://dummyjson.com/products/${clickedProductId}`;
     currentView = 4;
     fetch(productUrl)
