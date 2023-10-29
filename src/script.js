@@ -14,6 +14,7 @@ const productDetails = document.getElementById('productDetails');
 const productImage = document.getElementById('images');
 var currentView = 1;//Ansicht, Standard ist 1
 
+// Ansichten setzen
 function switchView(view) {
     switch (view) {
         case 1:
@@ -75,7 +76,7 @@ function navigateBack() {
 }
 switchView(currentView);//Standardansicht setzen
 
-// nach user suchen und Date laden
+// nach User suchen und Date laden
 function fetchUserData() {
     const searchValue = searchInput.value;
     const url = `https://dummyjson.com/users/search?q=${searchValue}`;
@@ -119,7 +120,7 @@ function fetchUserData() {
 
                 switchView(currentView);
             }
-
+            // Aktion, falls kein User gefunden wird
             else {
                 const row = tableBody.insertRow();
                 const noResultsCell = row.insertCell(0);
@@ -134,7 +135,7 @@ function fetchUserData() {
         });
 }
 
-
+// Abruf & Laden der Warenkorbdateen anhand geklickter UserId
 function loadUserData(userId, clickedUsername) {
     const cartUrl = `https://dummyjson.com/carts/user/${userId}`;
     currentView = 3;
@@ -146,12 +147,11 @@ function loadUserData(userId, clickedUsername) {
 
             if (cartData.carts && cartData.carts.length > 0) {
                 wishListH2.textContent = "Wunschliste von " + clickedUsername;
-                const headerH2 = document.createElement("h2");
                 const outerOl = document.createElement("ol");
-
                 document.body.appendChild(outerOl);
                 outerOl.className = "list-disc pl-9";
 
+                // Schleife zum abrufen aller Produkte im Cart Array
                 for (const cart of cartData.carts) {
                     for (const product of cart.products) {
                         const li = document.createElement("li");
@@ -170,13 +170,14 @@ function loadUserData(userId, clickedUsername) {
                             const clickedProductId = event.target.productId;
                             loadProductData(clickedProductId);
                             console.log("Clicked Product ID: " + clickedProductId);
-                            // Fügen Sie hier Ihren Code hinzu, um die Produktinformationen zu laden und anzuzeigen
                         }
                     });
 
                 }
 
                 wishListDiv.appendChild(outerOl);
+
+                //Falls user keinen Warenkorb hat
             } else {
                 const noResults = document.createElement("p");
                 noResults.className = "text-pink-600 font-bold";
@@ -192,6 +193,7 @@ function loadUserData(userId, clickedUsername) {
         });
 }
 
+// Produktdaten abfragen und laden
 function loadProductData(clickedProductId) {
     const productUrl = `https://dummyjson.com/products/${clickedProductId}`;
     currentView = 4;
