@@ -1,0 +1,16 @@
+export const variables = {
+    searchInput: document.getElementById('search-input'),
+    searchButton: document.getElementById('search-button'),
+    labelSbutton: document.getElementById('sButtonLabel'),
+    backButton: document.getElementById('back'),
+    textStart: document.getElementById('textStart'),
+    searchResultTitel: document.getElementById('searchResult-titel'),
+    searchResult: document.getElementById('searchResult'),
+    wishListH2: document.getElementById('wishListH2'),
+    cart: document.getElementById('cart'),
+    wishListDiv: document.getElementById('wishList'),
+    tableBody: document.getElementById('tabledat'),
+    productDiv: document.getElementById('product'),
+    productDetails: document.getElementById('productDetails'),
+    productImage: document.getElementById('images'),
+};
