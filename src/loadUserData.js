@@ -2,6 +2,7 @@ import { wishListDiv, wishListH2 } from './const.js';
 import { switchView } from './switchView.js';
 import { loadProductData } from './loadProductData.js';
 
+// Läd Warenkorb per UserId
 export const loadUserData = (userId, clickedUsername) => {
     const cartUrl = `https://dummyjson.com/carts/user/${userId}`;
     fetch(cartUrl)

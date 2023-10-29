@@ -1,6 +1,7 @@
 import { productImage } from './const.js';
 import { switchView } from './switchView.js';
 
+//lädt Detaildaten von Produkt
 export const loadProductData = (clickedProductId) => {
     const productUrl = `https://dummyjson.com/products/${clickedProductId}`;
     fetch(productUrl)
@@ -19,6 +20,7 @@ export const loadProductData = (clickedProductId) => {
             desc.textContent = productData.description;
             percentage.textContent = productData.discountPercentage + '%';
 
+            // iteriert über alle links im images Array und erstellt <img></img>
             productData.images.forEach(imageUrl => {
                 const img = document.createElement('img');
                 img.src = imageUrl;

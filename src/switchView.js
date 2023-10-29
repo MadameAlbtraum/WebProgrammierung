@@ -1,11 +1,15 @@
 import { labelSbutton, searchButton, backButton, cart, productDetails, productDiv, productImage, searchInput, searchResult, searchResultTitel, tableBody, textStart, wishListDiv, wishListH2 } from './const.js';
 var currentView = 1;
+
+// Funktion für zurück-Button
 export const navigateBack = () => {
     if (currentView > 1) {
         currentView--;
         switchView(currentView);
     }
 }
+
+// toggelt zwischen den Ansichten & setzt url
 export const switchView = (view) => {
     switch (view) {
         case 1:

@@ -2,6 +2,7 @@ import { searchInput, tableBody } from './const.js';
 import { switchView } from './switchView.js';
 import { loadUserData } from './loadUserData.js';
 
+//lädt Userdaten aus REST-API
 export const fetchUserData = () => {
     const searchValue = searchInput.value;
     const url = `https://dummyjson.com/users/search?q=${searchValue}`;
