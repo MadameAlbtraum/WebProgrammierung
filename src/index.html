@@ -25,16 +25,16 @@
 
             <nav id="menu" class="pb-3 sm:text-xl p-3 md:text-xl lg:text-xl">
                 <ul class="mx-3">
-                    <li class="inline pr-4">
+                    <li class="inline pr-4 hover:underline">
                         <a href="#">Start</a>
                     </li>
-                    <li class="inline pr-4">
+                    <li class="inline pr-4 hover:underline">
                         <a href="#">Konto</a>
                     </li>
-                    <li class="inline pr-4">
+                    <li class="inline pr-4 hover:underline">
                         <a href="#">Warenkorb</a>
                     </li>
-                    <li class="inline">
+                    <li class="inline hover:underline">
                         <a class="inline" href="#"><img class="w-7 inline" src="images/Logout.png"
                                 alt="Logout">Logout</a>
                     </li>
@@ -88,19 +88,25 @@
 
             </h2>
             <div id="product" class="flex">
-                <div id="productDetails" class="sm:grid md:grid-cols-4 md:grid-rows-3 sm:grid-cols-4 sm:grid-rows-6 ">
+                <h2 id="title" class="text-xl py-4 pl-5 font-bold">
+                    <!-- API Produktname -->
+                </h2>
+                <div id="productDetails"
+                    class="sm:grid md:grid-cols-4 md:grid-rows-3 sm:grid-cols-4 sm:grid-rows-6 ml-5">
                     <div class="font-bold w-20">
                         Marke:
                     </div>
 
                     <div id="brand">
+                        <!--API Marke -->
                     </div>
 
                     <div class="font-bold">
-                        Titel:
+                        Rabatt:
                     </div>
 
-                    <div id="title">
+                    <div id="percentage">
+                        <!--API Rabatt -->
                     </div>
 
                     <div class="font-bold">
@@ -108,6 +114,7 @@
                     </div>
 
                     <div id="price" class="sm:col-span-3">
+                        <!--API Preis -->
                     </div>
 
                     <div class="font-bold sm:col-span-2 md:col-span-1">
@@ -115,13 +122,12 @@
                     </div>
 
                     <div id="description" class="sm:col-span-4 md:col-span-3">
+                        <!--API Bechreibung -->
                     </div>
 
-
-                    <!-- brand title descprition preis -->
-                    <!-- bilder-->
                 </div>
                 <div class="sm:w-full lg:w-2/3" id="images">
+                    <!--API Bilder -->
                 </div>
             </div>
 
@@ -143,20 +149,20 @@
             </div>
         </section>
         <!--Grid Container-->
-        <!-- responsive Desing andere grid Verteilung grid md:grid-cols-3 md:grid-rows-1 sm:grid-col-1 sm:grid-rows-3  -->
+        <!-- andere grid Verteilung grid md:grid-cols-3 md:grid-rows-1 sm:grid-col-1 sm:grid-rows-3  -->
         <div class="grid grid-cols-3 grid-rows-1 text-center bg-slate-800 text-slate-300 pb-3">
             <div class="">
                 <h5 class="uppercase">Kontakt</h5>
 
-                <ul class="underline">
+                <ul class="">
                     <li>
-                        <a href="#!">E-mail</a>
+                        <a href="#!" class="hover:underline">E-mail</a>
                     </li>
                     <li>
-                        <a href="#!">Telefon</a>
+                        <a href="#!" class="hover:underline">Telefon</a>
                     </li>
                     <li>
-                        <a href="#!">Chatbot</a>
+                        <a href="#!" class="hover:underline">Chatbot</a>
                     </li>
                 </ul>
             </div>
@@ -165,18 +171,18 @@
                 <div class="">
                     <h5 class="uppercase">About Us</h5>
 
-                    <ul class="underline">
+                    <ul class="">
                         <li>
-                            <a href="#!">FAQs</a>
+                            <a href="#!" class="hover:underline">FAQs</a>
                         </li>
                         <li>
-                            <a href="#!">Philosophie</a>
+                            <a href="#!" class="hover:underline">Philosophie</a>
                         </li>
                         <li>
-                            <a href="#!">Geschichte</a>
+                            <a href="#!" class="hover:underline">Geschichte</a>
                         </li>
                         <li>
-                            <a href="#!">Team</a>
+                            <a href="#!" class="hover:underline">Team</a>
                         </li>
                     </ul>
                 </div>
@@ -186,18 +192,18 @@
                 <div class="">
                     <h5 class="uppercase">Sales</h5>
 
-                    <ul class="underline">
+                    <ul class="">
                         <li>
-                            <a href="#!">Elektro</a>
+                            <a href="#!" class="hover:underline">Elektro</a>
                         </li>
                         <li>
-                            <a href="#!">Spielzeug</a>
+                            <a href="#!" class="hover:underline">Spielzeug</a>
                         </li>
                         <li>
-                            <a href="#!">Bücher</a>
+                            <a href="#!" class="hover:underline">Bücher</a>
                         </li>
                         <li>
-                            <a href="#!">Kleidung</a>
+                            <a href="#!" class="hover:underline">Kleidung</a>
                         </li>
                     </ul>
                 </div>

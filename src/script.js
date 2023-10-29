@@ -94,11 +94,12 @@ function fetchUserData() {
                     // Tabelle mit Daten füllen
                     nameCell.innerHTML = user.firstName + ' ' + user.lastName;
                     usernameCell.innerHTML = `<a href="#" class="user-link">${user.username}</a>`;
-                    usernameCell.classList.add('pl-4');
+                    usernameCell.className = "pl-4";
 
                     // user an link hängen
                     const userLink = usernameCell.querySelector('.user-link');
                     userLink.user = user;
+                    userLink.className = "underline underline-offset-4";
 
                     // Event Listener für Benutzernamen-Link
                     userLink.addEventListener('click', function (event) {
@@ -123,7 +124,8 @@ function fetchUserData() {
                 const row = tableBody.insertRow();
                 const noResultsCell = row.insertCell(0);
                 noResultsCell.colSpan = 2;
-                noResultsCell.textContent = 'Deine Suche ergab leider keinen Treffer';
+                noResultsCell.className = "text-pink-600 font-bold";
+                noResultsCell.textContent = 'Deine Suche ergab leider keinen Treffer.';
                 switchView(currentView);
             }
         })
@@ -148,7 +150,7 @@ function loadUserData(userId, clickedUsername) {
                 const outerOl = document.createElement("ol");
 
                 document.body.appendChild(outerOl);
-                outerOl.className = "list-disc pl-4";
+                outerOl.className = "list-disc pl-9";
 
                 for (const cart of cartData.carts) {
                     for (const product of cart.products) {
@@ -156,7 +158,7 @@ function loadUserData(userId, clickedUsername) {
                         li.className = "mb-1";
                         const artikelLink = document.createElement("a");
                         artikelLink.href = "#";
-                        artikelLink.className = "product-link";
+                        artikelLink.className = "product-link underline underline-offset-4";
                         artikelLink.textContent = product.title;
                         artikelLink.productId = product.id;
                         li.appendChild(artikelLink);
@@ -197,16 +199,18 @@ function loadProductData(clickedProductId) {
         .then(response => response.json())
         .then(productData => {
             productImage.innerHTML = '';
+            const title = document.getElementById('title');
             const price = document.getElementById('price');
             const brand = document.getElementById('brand');
             const desc = document.getElementById('description');
-            const title = document.getElementById('title')
+            const percentage = document.getElementById('percentage')
             const imageArray = document.getElementById('images');
+            title.textContent = productData.title;
             price.textContent = productData.price + '€';
             brand.textContent = productData.brand;
             desc.textContent = productData.description;
-            title.textContent = productData.title;
-            //imageArray.textContent = productData.images;
+            percentage.textContent = productData.discountPercentage + '%';
+
             productData.images.forEach(imageUrl => {
                 const img = document.createElement('img');
                 img.src = imageUrl;
