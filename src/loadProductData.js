@@ -1,4 +1,4 @@
-import { variables } from './const.js';
+import { currentView, labelSbutton, searchButton, backButton, cart, productDetails, productDiv, productImage, searchInput, searchResult, searchResultTitel, tableBody, textStart, wishListDiv, wishListH2 } from './const.js';
 
 export const loadProductData = (clickedProductId) => {
     const productUrl = `https://dummyjson.com/products/${clickedProductId}`;

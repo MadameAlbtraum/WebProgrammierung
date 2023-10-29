@@ -1,16 +1,15 @@
-export const variables = {
-    searchInput: document.getElementById('search-input'),
-    searchButton: document.getElementById('search-button'),
-    labelSbutton: document.getElementById('sButtonLabel'),
-    backButton: document.getElementById('back'),
-    textStart: document.getElementById('textStart'),
-    searchResultTitel: document.getElementById('searchResult-titel'),
-    searchResult: document.getElementById('searchResult'),
-    wishListH2: document.getElementById('wishListH2'),
-    cart: document.getElementById('cart'),
-    wishListDiv: document.getElementById('wishList'),
-    tableBody: document.getElementById('tabledat'),
-    productDiv: document.getElementById('product'),
-    productDetails: document.getElementById('productDetails'),
-    productImage: document.getElementById('images'),
-};
+export var currentView = 1;//Ansicht, Standard ist 1
+export const labelSbutton = document.getElementById('sButtonLabel');
+export const searchInput = document.getElementById('search-input');
+export const searchButton = document.getElementById('search-button');
+export const backButton = document.getElementById('back');
+export const textStart = document.getElementById('textStart');
+export const searchResultTitel = document.getElementById('searchResult-titel');
+export const searchResult = document.getElementById('searchResult');
+export const wishListH2 = document.getElementById('wishListH2');
+export const cart = document.getElementById('cart');
+export const wishListDiv = document.getElementById('wishList');
+export const tableBody = document.getElementById('tabledat');
+export const productDiv = document.getElementById('product');
+export const productDetails = document.getElementById('productDetails');
+export const productImage = document.getElementById('images');
