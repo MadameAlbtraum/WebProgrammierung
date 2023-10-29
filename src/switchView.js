@@ -1,4 +1,4 @@
-import { labelSbutton, searchButton, backButton, cart, productDetails, productDiv, productImage, searchInput, searchResult, searchResultTitel, tableBody, textStart, wishListDiv, wishListH2 } from './const.js';
+import { labelSbutton, searchButton, backButton, cart, productDiv, searchInput, searchResult, searchResultTitel, textStart, wishListH2 } from './const.js';
 var currentView = 1;
 
 // Funktion für zurück-Button

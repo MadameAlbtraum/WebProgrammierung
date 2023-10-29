@@ -1,5 +1,5 @@
 
-import { labelSbutton, searchButton, backButton, cart, productDetails, productDiv, productImage, searchInput, searchResult, searchResultTitel, tableBody, textStart, wishListDiv, wishListH2 } from './const.js';
+import { searchButton, backButton, searchInput } from './const.js';
 // Ansichten setzen
 import { switchView, navigateBack } from './switchView.js';
 
@@ -7,14 +7,6 @@ switchView(1);//Standardansicht setzen
 
 // nach User suchen und Date laden
 import { fetchUserData } from './fetchUserData.js';
-
-
-// Abruf & Laden der Warenkorbdateen anhand geklickter UserId
-import { loadUserData } from './loadUserData.js';
-
-
-// Produktdaten abfragen und laden
-import { loadProductData } from './loadProductData.js';
 
 
 // Event Listener für Tastatureingabe
