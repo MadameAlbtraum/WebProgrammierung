@@ -915,7 +915,7 @@ video {
 }
 
 #bg {
-  background-image: url('/images/transparenteGeschenke.png');
+  background-image: url('images/transparenteGeschenke.png');
   background-size: cover;
   background-attachment: fixed;
 }
