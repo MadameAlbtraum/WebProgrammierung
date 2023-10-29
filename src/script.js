@@ -28,7 +28,7 @@ const switchView = (view) => {
             wishListH2.style.display = "none";
             cart.style.display = "none";
             productDiv.style.display = "none";
-            //history.pushState(null, null, "Usersuche.html");
+            history.pushState(null, null, "index.html");
             break;
         case 2:
             textStart.style.display = "none";
@@ -41,7 +41,7 @@ const switchView = (view) => {
             wishListH2.style.display = "none";
             cart.style.display = "none";
             productDiv.style.display = "none";
-            //history.pushState(null, null, "Ergebnis.html");
+            history.pushState(null, null, "Ergebnis");
             break;
         case 3:
             textStart.style.display = "none";
@@ -54,7 +54,7 @@ const switchView = (view) => {
             wishListH2.style.display = "block";
             cart.style.display = "block";
             productDiv.style.display = "none";
-            //history.pushState(null, null, "Wunschliste.html");
+            history.pushState(null, null, "Wunschliste");
             break;
         case 4:
             textStart.style.display = "none";
@@ -67,7 +67,7 @@ const switchView = (view) => {
             wishListH2.style.display = "none";
             cart.style.display = "none";
             productDiv.style.display = "block";
-            //history.pushState(null, null, "Produktdetail.html");
+            history.pushState(null, null, "Produktdetail");
             break;
 
     }
