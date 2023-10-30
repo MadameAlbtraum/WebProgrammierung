@@ -546,8 +546,16 @@ video {
   position: fixed;
 }
 
+.absolute {
+  position: absolute;
+}
+
 .relative {
   position: relative;
+}
+
+.bottom-0 {
+  bottom: 0px;
 }
 
 .col-span-1 {
@@ -649,6 +657,10 @@ video {
   width: 100%;
 }
 
+.flex-grow {
+  flex-grow: 1;
+}
+
 .border-collapse {
   border-collapse: collapse;
 }
@@ -719,6 +731,10 @@ video {
 
 .overflow-auto {
   overflow: auto;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
 }
 
 .rounded-md {
