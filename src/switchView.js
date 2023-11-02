@@ -66,5 +66,4 @@ export const switchView = (view) => {
             break;
     }
     currentView = view;
-    console.log("currentView:", currentView);
 }
