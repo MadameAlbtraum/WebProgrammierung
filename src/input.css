@@ -68,3 +68,15 @@
     max-width: 40%;
     height: auto;
 }
+
+#cart,
+#back,
+#wishListH2,
+#searchResult,
+#searchResultTitle,
+#tabledat,
+#product,
+#productDetail,
+#images {
+    display: none;
+}
