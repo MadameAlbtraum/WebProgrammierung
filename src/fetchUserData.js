@@ -6,7 +6,6 @@ import { loadUserData } from './loadUserData.js';
 export const fetchUserData = () => {
     const searchValue = searchInput.value;
     const url = `https://dummyjson.com/users/search?q=${searchValue}`;
-    console.log("fetchUserData");
     fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -36,9 +35,6 @@ export const fetchUserData = () => {
                         if (clickedUser) {
                             const userId = clickedUser.id;
                             loadUserData(userId, clickedUsername);
-                            console.log(userId);
-                            console.log(clickedUser);
-                            console.log(clickedUsername);
                         }
                     });
                 }));

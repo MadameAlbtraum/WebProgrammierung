@@ -34,7 +34,6 @@ export const loadUserData = (userId, clickedUsername) => {
                             event.preventDefault();
                             const clickedProductId = event.target.productId;
                             loadProductData(clickedProductId);
-                            console.log("Clicked Product ID: " + clickedProductId);
                         }
                     });
 
