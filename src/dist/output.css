@@ -805,6 +805,10 @@ video {
   padding-right: 0.5rem;
 }
 
+.pr-3 {
+  padding-right: 0.75rem;
+}
+
 .pr-4 {
   padding-right: 1rem;
 }
@@ -815,10 +819,6 @@ video {
 
 .pt-3 {
   padding-top: 0.75rem;
-}
-
-.pr-3 {
-  padding-right: 0.75rem;
 }
 
 .text-left {
@@ -964,6 +964,18 @@ video {
   height: auto;
 }
 
+#cart,
+#back,
+#wishListH2,
+#searchResult,
+#searchResultTitle,
+#tabledat,
+#product,
+#productDetail,
+#images {
+  display: none;
+}
+
 .hover\:scale-125:hover {
   --tw-scale-x: 1.25;
   --tw-scale-y: 1.25;
@@ -999,10 +1011,6 @@ video {
 
   .sm\:grid {
     display: grid;
-  }
-
-  .sm\:min-h-screen {
-    min-height: 100vh;
   }
 
   .sm\:w-full {
