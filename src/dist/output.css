@@ -964,18 +964,6 @@ video {
   height: auto;
 }
 
-#cart,
-#back,
-#wishListH2,
-#searchResult,
-#searchResultTitle,
-#tabledat,
-#product,
-#productDetail,
-#images {
-  display: none;
-}
-
 .hover\:scale-125:hover {
   --tw-scale-x: 1.25;
   --tw-scale-y: 1.25;
